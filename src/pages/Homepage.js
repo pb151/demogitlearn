@@ -12,6 +12,8 @@ import Testimonial from '../component/Testimonial';
 import Gallery from '../component/Gallery';
 import Contact from '../component/Contact';
 
+
+
 class Home extends React.Component {
   render() {
     return (

@@ -5,6 +5,7 @@ import Whyus from '../component/Whyus';
 import About from '../component/About';
 import Gallery from '../component/Gallery';
 
+
 class Aboutpage extends React.Component {
   render() {
     return (

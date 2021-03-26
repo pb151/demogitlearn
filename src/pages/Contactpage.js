@@ -3,7 +3,8 @@ import Breadcrumb from '../component/Breadcrumb';
 import Contact from '../component/Contact';
 import Faq from '../component/Faq';
 
-class Aboutpage extends React.Component {
+
+class Contactpage extends React.Component {
   render() {
     return (
       <div>
@@ -16,4 +17,4 @@ class Aboutpage extends React.Component {
     )
   }
 }
-export default Aboutpage;
+export default Contactpage;

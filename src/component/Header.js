@@ -1,8 +1,63 @@
 import React from 'react';
 
-import { BrowserRouter as Router, Route, Switch , Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch , NavLink } from "react-router-dom";
+import history from '../helpers/history';
 
 class Header extends React.Component {
+
+  state = {
+        links: [
+            {
+                id: 1,
+                name: "Home",
+                to: "/",
+                className: "nav-item",
+                isDropdown: false
+            },
+            {
+                id: 2,
+                name: "About Us",
+                to: "/about",
+                className: "nav-item",
+                isDropdown: false
+            },
+            {
+                id: 3,
+                name: "Service",
+                to: "/service",
+                className: "nav-item",
+                isDropdown: false
+            },
+            {
+                id: 4,
+                name: "Department",
+                to: "/department",
+                className: "nav-item",
+                isDropdown: false
+            },
+            {
+                id: 5,
+                name: "Doctor",
+                to: "/doctor",
+                className: "nav-item",
+                isDropdown: false
+            },
+            {
+                id: 6,
+                name: "Contact",
+                to: "/contact",
+                className: "nav-item",
+                isDropdown: false
+            },
+        ],
+        activeLink: null
+    };
+
+    handleClick = id => {
+        this.setState({ activeLink: id });
+    };
+
+    
   render() {
     return (
     
@@ -14,16 +69,20 @@ class Header extends React.Component {
 
           <nav className="nav-menu d-none d-lg-block">
             <ul>
-              <li className="active"><Link to={'/'} className="nav-link"> Home </Link></li>
-              <li><Link to={'/about'} className="nav-link"> About </Link></li>
-              <li><Link to={'/service'} className="nav-link">Service</Link></li>
-              <li><Link to={'/department'} className="nav-link">Departments</Link></li>
-              <li><Link to={'/doctor'} className="nav-link">Doctor</Link></li>
-              <li><Link to={'/contact'} className="nav-link">Contact</Link></li>
+              {this.state.links.map(link => {
+                return (
+                    <li key={link.to} className={history.location.pathname === link.to ? 'active' : ''}><NavLink to={link.to} className="nav-link"> {link.name} </NavLink></li>
+                )
+              })}
+              {/* <li><NavLink to={'/about'} className="nav-link"> About </NavLink></li>
+              <li><NavLink to={'/service'} className="nav-link">Service</NavLink></li>
+              <li><NavLink to={'/department'} className="nav-link">Departments</NavLink></li>
+              <li><NavLink to={'/doctor'} className="nav-link">Doctor</NavLink></li>
+              <li><NavLink to={'/contact'} className="nav-link">Contact</NavLink></li> */}
 
             </ul>
           </nav>
-          <a href="#appointment" className="appointment-btn scrollto">Make an Appointment</a>
+          <a href="/doctor#appointment" className="appointment-btn scrollto">Make an Appointment</a>
 
         </div>
       </header>
